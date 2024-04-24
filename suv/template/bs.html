@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUV</title>
+    <link rel="stylesheet" href="static/bs.css">
+
+    <script>
+    function showSellForm() {
+        document.getElementById("sellForm").style.display = "block";
+    }
+    </script>
+    
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+form {
+    margin-top: 20px;
+}
+.wrapper{
+    margin-left: 110px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  width: 600px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: #4158d0;
+}
+.wrapper form .field label{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]:active{
+  transform: scale(0.95);
+}
+form .field input[type="reset"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+form .field input[type="reset"]:active{
+  transform: scale(0.95);
+}
+</style>  
+<script>
+  function fun(){
+    alert("You will be contacted whenever any buyer clicks")
+  }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1><b>SUV</b></h1>
+          brings you a easy way to sell and buy properties
+        <br><br>
+        <div class="options">
+            <a href="buy"><button >Buy Properties</button></a>
+            <button onclick="showSellForm()">Sell Properties</button>
+        </div>
+        <div id="sellForm" style="display:none;">
+            <div id="login">
+                <div class="wrapper">
+                   <div class="title">
+                      fill the form
+                   </div>
+                    <form action="bs" method="get">
+                      <div class="field">
+                         <input type="text" name="name" required>
+                         <label>Name</label>
+                      </div>
+                      <div class="field">
+                        <input type="email" name="email" required>
+                        <label>Email Address</label>
+                     </div>
+                     <div class="field">
+                        <input type="number" name="contact" required>
+                        <label>Contact</label>
+                      </div>
+                      <div class="abc" style="margin: 20px 0px 25px 20px">
+                        <label for="category">Category</label>
+                        <select name="category" id="category" required style="width: 200px; height: 50px;border: 1px solid lightgrey; border-radius: 25px; font-size: 15px;">
+                          {% for i in choices%}
+                              <option value="{{i.0}}">{{i.1}}</option>
+                          {% endfor %}
+                        </select>
+                        <small>plot by default</small>
+                      </div>
+                      <div class="field">
+                        <input type="text" name="location" required>
+                        <label>Location</label>
+                      </div>
+                      <div class="field">
+                        <input type="number" name="price" required>
+                        <label>Price</label>
+                      </div>
+                      <div class="field">
+                        <input type="textarea" name="description" required>
+                        <label>Description</label>
+                      </div>
+                      <!-- <div class="field">
+                         <input type="image" required>
+                         <label>Upload Image</label>
+                      </div> -->
+                      <div class="field" onclick="fun()">
+                         <input type="submit" value="Save">
+                      </div>
+                      <div class="field">
+                        <input type="reset" value="Reset">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+        </div>
+      </div>
+  </body>
+</html>

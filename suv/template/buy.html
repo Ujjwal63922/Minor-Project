@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+  body{
+        background-color: #fffff9;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  table td {
+    height: 150px;
+    margin-left: 30px;
+    border: 3px solid black;
+    border-radius: 20px;
+    font-size: 35px;
+  }
+  .head{
+    float:left;
+    margin: 0;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+  }
+  #buyer, #up-buyer{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .header{
+    float: left;
+    margin: 0;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+
+</style>
+</head>
+<body>
+  <div style="height: 50px; width: 100%; font-size: 30px; margin: 50px; margin-top: 60px;">
+    Click on the Id to list a property on your name. <br>
+    <b>Note: </b>
+    To see properties category wise go to our <a href="service" style="text-decoration: none; color: blueviolet;">service</a> section
+  </div>
+  <div style="height: 150px; margin: 50px 50px 50px 50px;">
+    <div style="height: 100px;">
+      <div class="header" style="width:4%;">Id</div>
+      <div class="header" style="width: 12%;" >Category</div>
+      <div class="header" style="width: 27%;">Location</div>
+      <div class="header" style="width: 36%;">Description</div>
+      <div class="header" style="width: 10%;">Price</div>
+      <div class="header" style="width:10%;">Status</div>
+    </div>
+  </div>
+  {% for i in key %}
+  <div style="height: 150px; margin: 50px 50px 50px 50px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #ffffff">
+    <div>
+      <div class="head" style="width:4%"><a href="prop" style="text-decoration: none;">{{i.id}}</a></div>
+      <div class="head" style="width: 12%;" >{{i.category}}</div>
+      <div class="head" style="width: 27%;">{{i.location}}</div>
+      <div class="head" style="width: 36%;">{{i.description}}</div>
+      <div class="head" style="width: 10%;">{{i.price}}</div>
+      <div class="head" style="width: 10%;">{{i.status}}</div>
+<!--       <div class="head" style="width: 20%;"><img src="{{i.image}}" alt="s"></div>
+ -->    </div>
+  </div>
+  {% endfor %}
+</body>
+</html>
